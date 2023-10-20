@@ -9,7 +9,21 @@ async function createProduct(req, res) {
         return res.status(200).json({
             message: "Tạo thành công"
         })
+        console.log(req.body);
     } catch (error) {
-        
+        console.log(error);
     }
 }
+async function getAllProduct(req, res) {
+    try {
+        const allProduct = await Product.find()
+        return res.status(200).json({
+            message: "Lấy thành công",
+            allProduct
+        })
+        console.log(req.body);
+    } catch (error) {
+        console.log(error);
+    }
+}
+module.exports = {createProduct, getAllProduct}

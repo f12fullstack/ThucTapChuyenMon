@@ -56,25 +56,32 @@
             const productName = document.getElementById("productName").value
             const price = document.getElementById("price").value
         })
-        let arr = Array(20).fill(20)
-        const list = document.getElementById("list") 
-        arr.forEach((item, index) => { // duyet qua tung phan tu cua mang
-            const listItem = document.createElement("div")
-            // listItem.innerHTML = "Phuong Anh xinh dep" // la text trong the div
-            listItem.innerHTML = `
-                <div id="table"> 
-                    <div>Loại sản phẩm</div>  
-                    <div>Tên sản phẩm</div> 
-                    <div>Giá sản phẩm</div> 
-                    <div class="img-product">
-                        <img src="https://i.pinimg.com/474x/d9/83/b5/d983b5e9b5c0bae43c2ae370396b1992.jpg" alt="">
-                    </div>   
-                    <div class="edit"><i class="fa-regular fa-pen-to-square"></i></div>
-                    <div class="delete"><i class="fa-solid fa-trash"></i></div>
-                </div>       
-            `
-            list.appendChild(listItem) // moi 1 lan lap "list" se nhan 1 children la "listItem" 
-        }) 
+        
+        fetch('http://localhost:8000/api/product/getAll').then(response => response.json())
+        .then(data => {
+            const list = document.getElementById("list") 
+            data.allProduct.forEach((item, index) => { // duyet qua tung phan tu cua mang
+                const listItem = document.createElement("div")
+                // listItem.innerHTML = "Phuong Anh xinh dep" // la text trong the div
+                listItem.innerHTML = `
+                    <div id="table"> 
+                        <div>${item.category}</div>  
+                        <div>${item.name}</div> 
+                        <div>${item.price}</div> 
+                        <div class="img-product">
+                            <img src=${item.image[0]} alt="">
+                        </div>   
+                        <div class="edit"><i class="fa-regular fa-pen-to-square"></i></div>
+                        <div class="delete"><i class="fa-solid fa-trash"></i></div>
+                    </div>       
+                `
+                list.appendChild(listItem) // moi 1 lan lap "list" se nhan 1 children la "listItem" 
+            }) 
+            console.log(data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
 
     </script>
 </body>

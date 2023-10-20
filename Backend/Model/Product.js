@@ -10,7 +10,7 @@ const productSchema = new mongo.Schema({
         type: Number
     },
     image: {
-        type: String
+        type: Array
     }
 })
 const Product = mongo.model("Product", productSchema)
