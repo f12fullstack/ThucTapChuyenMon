@@ -113,33 +113,8 @@
     </div>
     <div class="products">
         <p class="product-title">New Products</p>
-        <div class="product-grid">
-            <div class="product-box">
-                <div style="overflow: hidden;">
-                    <div class="product-box-img">
-                        <img src="https://leleshop.vercel.app/assets/images/products/jacket-3.jpg" alt="" class="default">
-                        <img src="https://leleshop.vercel.app/assets/images/products/jacket-4.jpg" alt="" class="hover">
-                    </div>
-                </div>
-                <div class="product-box-title">
-                    <p>JACKET</p>
-                    <p>Mens Winter Leathers Jackets</p> 
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <p><b>$48.00</b> <span>$75.00</span></p>
-                </div>
-                <span class="sale">15%</span>
-                <div class="product-icon">
-                    <div><i class="fa-regular fa-heart"></i></div>
-                    <div><i class="fa-regular fa-eye"></i></div>
-                    <div><i class="fa-solid fa-rotate-right"></i></div>
-                    <div><i class="fa-solid fa-cart-shopping"></i></div>
-                </div>
-            </div>
-            <div class="product-box">
+        <div class="product-grid" id="list">
+            <!-- <div class="product-box">
                 <div style="overflow: hidden;">
                     <div class="product-box-img">
                         <img src="https://leleshop.vercel.app/assets/images/products/jacket-3.jpg" alt="" class="default">
@@ -213,7 +188,7 @@
                     <div><i class="fa-solid fa-rotate-right"></i></div>
                     <div><i class="fa-solid fa-cart-shopping"></i></div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="detail">
@@ -458,5 +433,48 @@
         </div>
         <p>Copyright © Anon All Rights Reserved.</p>
     </div>
+    <script>
+        fetch('http://localhost:8000/api/product/getAll').then(response => response.json())
+        .then(data => {
+            const list = document.getElementById("list") 
+            data.allProduct.forEach((item, index) => { // duyet qua tung phan tu cua mang
+                const listItem = document.createElement("div")
+                // listItem.innerHTML = "Phuong Anh xinh dep" // la text trong the div
+                listItem.innerHTML = `
+                <div class="product-box">
+                    <div style="overflow: hidden;">
+                        <div class="product-box-img">
+                            <img src=${item.image[0]} alt="" class="default">
+                            <img src="https://leleshop.vercel.app/assets/images/products/jacket-4.jpg" alt="" class="hover">
+                        </div>
+                    </div>
+                    <div class="product-box-title">
+                        <p>${item.category}</p>
+                        <p>${item.name}</p> 
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <p><b>${item.price.toLocaleString()}</b></p>
+                    </div>
+                    <span class="sale">15%</span>
+                    <div class="product-icon">
+                        <div><i class="fa-regular fa-heart"></i></div>
+                        <div><i class="fa-regular fa-eye"></i></div>
+                        <div><i class="fa-solid fa-rotate-right"></i></div>
+                        <div><i class="fa-solid fa-cart-shopping"></i></div>
+                    </div>
+                </div>
+                          
+                `
+                list.appendChild(listItem) // moi 1 lan lap "list" se nhan 1 children la "listItem" 
+            }) 
+            console.log(data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    </script>
 </body>
 </html>
