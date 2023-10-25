@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./admin.css">
 </head>
+
 <body>
     <div class="admin-container">
         <h2>Danh sách sản phẩm</h2>
@@ -31,39 +35,83 @@
                     <label for="price">Giá sản phẩm</label>
                     <input type="number" id="price" name="price">
                 </div>
-                <div class="form-infor">
+                <!-- <div class="form-infor">
                     <label for="">Ảnh</label>
                     <input type="file">
+                </div> -->
+                <div class="form-infor">
+                    <label for="image-1">Ảnh 1</label>
+                    <input type="text" id="image-1" name="image-1">
                 </div>
+                <div class="form-infor">
+                    <label for="image-2">Ảnh 2</label>
+                    <input type="text" id="image-2" name="image-2">
+                </div>
+
                 <div class="btn-addNew"><button type="submit">Tạo mới</button></div>
             </form>
         </div>
     </div>
     <script>
+
+        // Modal admin
         const addButton = document.getElementById("btn-add")
         const formProduct = document.getElementById("form-product")
-        addButton.addEventListener("click", function(){
-            formProduct.style.transform="translate(0, 0)"
-        })
+        addButton.addEventListener("click", function () {
+            formProduct.style.transform = "translate(0, 0)"
+        });
         const deleteButton = document.getElementById("delete")
-        deleteButton.addEventListener("click", function(){
-            formProduct.style.transform="translate(-100%, 0)"
-        })
+        deleteButton.addEventListener("click", function () {
+            formProduct.style.transform = "translate(-100%, 0)"
+        });
         const form = document.getElementById("form")
-        form.addEventListener("submit", function(e){
+        form.addEventListener("submit", function (e) {
             e.preventDefault() // ngan reload
-            const category = document.getElementById("category").value
-            const productName = document.getElementById("productName").value
-            const price = document.getElementById("price").value
+            // const formData = new FormData(event.target);
+            // const data = {};
+            // formData.forEach((value, key) => {
+            //     data[key] = value;
+            // });
+            const category = document.getElementById("category").value;
+            const name = document.getElementById("productName").value;
+            const price = document.getElementById("price").value;
+            const image_1 = document.getElementById("image-1").value;
+            const image_2 = document.getElementById("image-2").value;
+
+            const editProduct = {
+                category,
+                name,
+                price,
+                image: [
+                    image_1,
+                    image_2
+                ]
+            }
+
+            fetch("http://localhost:8000/api/product/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(editProduct)
+            })
+                .then(response => response.json())
+                .then(responseData => {
+                    console.log(responseData);
+                })
+                .catch(error => {
+                    console.error("Lỗi: " + error);
+                });
+
+
         })
-        
-        fetch('http://localhost:8000/api/product/getAll').then(response => response.json())
+
+        fetch('http://localhost:8000/api/product/getAll').then(response => response.json()) // .then khi thanh cong, trich suat json tu response
         .then(data => {
-            const list = document.getElementById("list") 
-            data.allProduct.forEach((item, index) => { // duyet qua tung phan tu cua mang
-                const listItem = document.createElement("div")
-                // listItem.innerHTML = "Phuong Anh xinh dep" // la text trong the div
-                listItem.innerHTML = `
+                const list = document.getElementById("list")
+                data.allProduct.forEach((item, index) => { // duyet qua tung phan tu cua mang
+                    const listItem = document.createElement("div")
+                    listItem.innerHTML = `
                     <div id="table"> 
                         <div>${item.category}</div>  
                         <div>${item.name}</div> 
@@ -75,14 +123,15 @@
                         <div class="delete"><i class="fa-solid fa-trash"></i></div>
                     </div>       
                 `
-                list.appendChild(listItem) // moi 1 lan lap "list" se nhan 1 children la "listItem" 
-            }) 
-            console.log(data);
-        })
-        .catch(err => {
-            console.log(err);
-        })
+                    list.appendChild(listItem) // moi 1 lan lap "list" se nhan 1 children la "listItem" 
+                })
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    
 
     </script>
 </body>
+
 </html>

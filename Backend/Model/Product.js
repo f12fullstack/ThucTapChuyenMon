@@ -1,4 +1,4 @@
-const mongo = require("mongoose")
+const mongo = require("mongoose") 
 const productSchema = new mongo.Schema({
     category: {
         type: String,
