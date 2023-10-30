@@ -1,5 +1,5 @@
 const mongo = require("mongoose")
-const express = require("express") // import es6 con day la es5
+const express = require("express") 
 const app = express()
 const port = 8000
 const urldb = "mongodb+srv://phuonganhhh2711:leleshop@phuonganh.0swtqos.mongodb.net/"
