@@ -80,6 +80,7 @@ input{
     background-color: var(--gray);
     border-radius: 5px;
     font-size: 17px;
+    cursor: pointer;
 }
 #list{
     overflow-y: scroll;

@@ -35,10 +35,6 @@
                     <label for="price">Giá sản phẩm</label>
                     <input type="number" id="price" name="price">
                 </div>
-                <!-- <div class="form-infor">
-                    <label for="">Ảnh</label>
-                    <input type="file">
-                </div> -->
                 <div class="form-infor">
                     <label for="image-1">Ảnh 1</label>
                     <input type="text" id="image-1" name="image-1">
@@ -57,6 +53,11 @@
         // Modal admin
         const addButton = document.getElementById("btn-add")
         const formProduct = document.getElementById("form-product")
+        const category = document.getElementById("category");
+        const name = document.getElementById("productName");
+        const price = document.getElementById("price");
+        const image_1 = document.getElementById("image-1");
+        const image_2 = document.getElementById("image-2");
         addButton.addEventListener("click", function () {
             formProduct.style.transform = "translate(0, 0)"
         });
@@ -72,11 +73,7 @@
             // formData.forEach((value, key) => {
             //     data[key] = value;
             // });
-            const category = document.getElementById("category").value;
-            const name = document.getElementById("productName").value;
-            const price = document.getElementById("price").value;
-            const image_1 = document.getElementById("image-1").value;
-            const image_2 = document.getElementById("image-2").value;
+           
 
             const editProduct = {
                 category,
@@ -111,6 +108,7 @@
                 const list = document.getElementById("list")
                 data.allProduct.forEach((item, index) => { // duyet qua tung phan tu cua mang
                     const listItem = document.createElement("div")
+                    listItem.setAttribute("productId", item._id)
                     listItem.innerHTML = `
                     <div id="table"> 
                         <div>${item.category}</div>  
@@ -123,14 +121,24 @@
                         <div class="delete"><i class="fa-solid fa-trash"></i></div>
                     </div>       
                 `
-                    list.appendChild(listItem) // moi 1 lan lap "list" se nhan 1 children la "listItem" 
-                })
-            })
+                    list.appendChild(listItem) // moi 1 lan lap "list" se nhan 1 children la "listItem"
+                    const editBtn = document.querySelectorAll(".edit")
+                    editBtn.forEach(function(button, index) {
+                        button.addEventListener("click", function() {
+                            formProduct.style.transform = "translate(0, 0)"
+                            console.log(item);
+                            // category.value = item.category
+                            // name.value = item.name
+                            // price.value = item.price
+                            // image_1.value = item.image[0]
+                            // image_2.value = item.image[1]
+                        })
+                    }) 
+                        })
+                    })
             .catch(err => {
                 console.log(err);
             })
-    
-
     </script>
 </body>
 
