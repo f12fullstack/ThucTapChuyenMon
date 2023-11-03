@@ -36,79 +36,126 @@
                     <input type="number" id="price" name="price">
                 </div>
                 <div class="form-infor">
-                    <label for="image-1">Ảnh 1</label>
-                    <input type="text" id="image-1" name="image-1">
+                    <label for="image_1">Ảnh 1</label>
+                    <input type="text" id="image_1" name="image_1">
                 </div>
                 <div class="form-infor">
-                    <label for="image-2">Ảnh 2</label>
-                    <input type="text" id="image-2" name="image-2">
+                    <label for="image_2">Ảnh 2</label>
+                    <input type="text" id="image_2" name="image_2">
                 </div>
 
-                <div class="btn-addNew"><button type="submit">Tạo mới</button></div>
+                <div class="btn-addNew"><button type="submit">Save</button></div>
             </form>
         </div>
     </div>
     <script>
-
+        // Tạo 1 biến productId và products để thế này thì giá trị ban đầu của nó là undefined 
+        let productId;
+        let products;
         // Modal admin
-        const addButton = document.getElementById("btn-add")
         const formProduct = document.getElementById("form-product")
-        const category = document.getElementById("category");
-        const name = document.getElementById("productName");
-        const price = document.getElementById("price");
-        const image_1 = document.getElementById("image-1");
-        const image_2 = document.getElementById("image-2");
+        const form = document.getElementById("form")
+        const addButton = document.getElementById("btn-add")
+
         addButton.addEventListener("click", function () {
             formProduct.style.transform = "translate(0, 0)"
         });
+
         const deleteButton = document.getElementById("delete")
         deleteButton.addEventListener("click", function () {
             formProduct.style.transform = "translate(-100%, 0)"
         });
-        const form = document.getElementById("form")
+
         form.addEventListener("submit", function (e) {
-            e.preventDefault() // ngan reload
-            // const formData = new FormData(event.target);
-            // const data = {};
-            // formData.forEach((value, key) => {
-            //     data[key] = value;
-            // });
-           
 
-            const editProduct = {
-                category,
-                name,
-                price,
-                image: [
-                    image_1,
-                    image_2
-                ]
-            }
+            e.preventDefault();
 
-            fetch("http://localhost:8000/api/product/create", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(editProduct)
-            })
-                .then(response => response.json())
-                .then(responseData => {
-                    console.log(responseData);
+            // Lấy value trong form
+            const category = form.elements.category.value;
+            const name = form.elements.productName.value;
+            const price = form.elements.price.value;
+            const image_1 = form.elements.image_1.value;
+            const image_2 = form.elements.image_2.value;
+
+
+            if (!productId) {
+
+                // Nếu k có productId ở bên trên thì gọi api tạo mới sản phẩm
+                // Tạo 1 biến product chứa các value
+                const product = {
+                    category,
+                    name,
+                    price,
+                    image: [
+                        image_1,
+                        image_2
+                    ]
+                }
+                fetch("http://localhost:8000/api/product/create", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(product)
                 })
-                .catch(error => {
-                    console.error("Lỗi: " + error);
-                });
-
+                    .then(response => response.json())
+                    .then(responseData => {
+                        console.log(responseData);
+                        // Thành công thì đóng modal và alert
+                        formProduct.style.transform = "translate(-100%, 0)"
+                        alert("Tạo thành công");
+                    })
+                    .catch(error => {
+                        console.error("Lỗi: " + error);
+                        alert("Lỗi: " + error);
+                    });
+            } else {
+                // Nếu có productId thì gọi api update
+                // Tạo 1 biến product chứa các value
+                const editProduct = {
+                    id: productId,
+                    category,
+                    name,
+                    price,
+                    image: [
+                        image_1,
+                        image_2
+                    ],
+                }
+                fetch("http://localhost:8000/api/product/edit", {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(editProduct)
+                })
+                    .then(response => response.json())
+                    .then(responseData => {
+                        console.log(responseData);
+                        // Thành công thì đóng modal và alert
+                        formProduct.style.transform = "translate(-100%, 0)"
+                        alert("Chỉnh sửa thành công")
+                    })
+                    .catch(error => {
+                        console.error("Lỗi: " + error);
+                        alert("Lỗi: " + error)
+                    });
+            }
 
         })
 
+        //  render list sản phẩm
+
+        const list = document.getElementById("list")
         fetch('http://localhost:8000/api/product/getAll').then(response => response.json()) // .then khi thanh cong, trich suat json tu response
-        .then(data => {
-                const list = document.getElementById("list")
-                data.allProduct.forEach((item, index) => { // duyet qua tung phan tu cua mang
+            .then(data => {
+                // gán products đã khai báo ở trên cho cái array mà api trả về
+                products = data.allProduct
+                // lặp nó
+                products.forEach((item, index) => { // duyet qua tung phan tu cua mang
                     const listItem = document.createElement("div")
                     listItem.setAttribute("productId", item._id)
+                    // thêm html cho listItem và gán id mỗi product cho cái button
                     listItem.innerHTML = `
                     <div id="table"> 
                         <div>${item.category}</div>  
@@ -116,29 +163,70 @@
                         <div>${item.price}</div> 
                         <div class="img-product">
                             <img src=${item.image[0]} alt="">
+                            <img src=${item.image[1]} alt="">
                         </div>   
-                        <div class="edit"><i class="fa-regular fa-pen-to-square"></i></div>
-                        <div class="delete"><i class="fa-solid fa-trash"></i></div>
+                       <div class="group-btn">
+                        <button data-id="${item._id}" class="edit-button">Edit</button>
+                        <button data-id="${item._id}" class="delete-button">Delete</button>
+                        </div>
+
                     </div>       
                 `
+
                     list.appendChild(listItem) // moi 1 lan lap "list" se nhan 1 children la "listItem"
-                    const editBtn = document.querySelectorAll(".edit")
-                    editBtn.forEach(function(button, index) {
-                        button.addEventListener("click", function() {
-                            formProduct.style.transform = "translate(0, 0)"
-                            console.log(item);
-                            // category.value = item.category
-                            // name.value = item.name
-                            // price.value = item.price
-                            // image_1.value = item.image[0]
-                            // image_2.value = item.image[1]
-                        })
-                    }) 
-                        })
-                    })
+                })
+            })
             .catch(err => {
                 console.log(err);
             })
+
+
+        // edit product
+        // add event click vào list
+        list.addEventListener('click', (event) => {
+            // Tìm đến element có class là edit-button
+            if (event.target.classList.contains("edit-button")) {
+                // lấy id product
+                productId = event.target.getAttribute("data-id");
+                // Tìm product theo id
+                const productToEdit = products.find((product) => product._id === productId);
+                if (productToEdit) {
+                    // Mở modal
+                    formProduct.style.transform = "translate(0, 0)"
+                    // set item model
+                    form.elements.category.value = productToEdit.category;
+                    form.elements.productName.value = productToEdit.name;
+                    form.elements.price.value = productToEdit.price;
+                    form.elements.image_1.value = productToEdit.image[0];
+                    form.elements.image_2.value = productToEdit.image[1];
+                }
+                // Tìm đến element có class là delete-button
+            } else if (event.target.classList.contains("delete-button")) {
+                // lấy id product
+                productId = event.target.getAttribute("data-id");
+                // Gọi api xóa
+                fetch("http://localhost:8000/api/product/delete", {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        id: productId
+                    })
+                })
+                    .then(response => response.json())
+                    .then(responseData => {
+                        console.log(responseData);
+                        alert("Bạn có chắc chắn muốn xóa")
+                    })
+                    .catch(error => {
+                        console.error("Lỗi: " + error);
+                        alert("Lỗi: " + error)
+                    });
+            }
+
+        })
+
     </script>
 </body>
 
