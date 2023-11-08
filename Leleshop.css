@@ -93,7 +93,7 @@
     text-align: center;
 }
 .advertisement-img img{
-    width: 93%;
+    width: 400px;
     height: 400px;
     border-radius: 15px;
     object-fit: cover;
@@ -110,7 +110,7 @@
 }
 .advertisement-banner h2{
     font-size: 45px;
-    width: 330px;
+    width: 350px;
     font-weight: bold;
     margin: 10px 0 20px;
 }
@@ -760,8 +760,7 @@
         display: none;
     }
     .header-title{
-        width: auto;
-        margin-left: 10px;
+        width: 100%;
         font-size: 13px;
     }
     .header-main-icon{
@@ -777,10 +776,12 @@
         margin-top: 30px;
     }
     .advertisement-banner{
-        left:100px
+        left:100px; 
+        top: 15px
     }
     .advertisement-banner h2{
-        font-size: 35px;
+        font-size: 30px;
+        width: 330px;
     }
     .advertisement-banner-text{
         font-size: 23px;
@@ -891,10 +892,13 @@
     .footer-nav-container{
         width: 27%;
     }
+    .trend-box-last{
+        display: block;
+    }   
 }
 @media (max-width: 600px){
     .advertisement-banner{
-        top: 40px;
+        top: 20px;
     }
     .advertisement-img img {
         width: 93%;
@@ -963,6 +967,9 @@
     .footer-nav-title {
         width: 175px;
         font-size: 15px;
+    }
+    .trend-box-last{
+        display: block;
     }
 }
 
