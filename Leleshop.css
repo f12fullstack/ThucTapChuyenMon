@@ -78,7 +78,7 @@
     color: var(--gray);
     cursor: pointer;
 }
-.navigation ul{
+.navigation-ul{
     width: 70%;
     margin: 0 auto;
     display: flex;
@@ -88,8 +88,32 @@
     padding-top: 10px;
     font-weight: bold;
 }
-.navigation li{
+.navigation-li{
     cursor: pointer;
+    position: relative;
+}
+.navigation-ul-item{
+    opacity: 0;
+    list-style-type: none;
+    position: absolute;
+    z-index: 1;
+    top: 100px;
+    background-color: white;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1);
+    font-weight: lighter;
+    transition: 0.5s ease;
+}
+.navigation-ul-item li{
+    padding: 4px 0;
+}
+.navigation-li:hover .navigation-ul-item{
+    opacity: 1;
+    top:40px;
+}
+.navigation-ul-item li:hover{
+    color: var(--pink)
 }
 .advertisement{
     margin: 15px 0;
