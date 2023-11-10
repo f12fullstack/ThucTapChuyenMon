@@ -1,0 +1,147 @@
+:root{
+    --gray: gray;
+    --light-gray:rgb(243, 236, 236);
+    --pink: rgb(250, 171, 184);
+    --border-radius-gray: rgb(216, 214, 214);
+    --star: rgb(255, 157, 0);
+    --light-black:rgb(31, 30, 30);
+}
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.payment{
+    display: flex;
+    width: 95%;
+    margin: 10px auto;
+    justify-content: space-around;
+}
+.payment-infor{
+    width: 45%;
+}
+.payment-infor h1{
+    color: var(--pink);
+    margin-bottom: 15px;
+}
+.payment-menu{
+    display: flex;
+    justify-content: space-between;
+}
+.payment-menu p{
+    transition: 0.3s ease;
+}
+.payment-menu p:hover{
+    color: var(--pink);
+    cursor: pointer;
+}
+.payment-infor h3{
+    margin: 10px 0;
+}
+.check-login{
+    display: flex;
+    margin-bottom: 10px;
+}
+.check-login p:nth-child(2){
+    margin-left: 5px;
+    color: var(--gray);
+    cursor: pointer;
+}
+.inputName,
+.inputAddress{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--border-radius-gray);
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+.inputEmailNumber{
+    display: flex;
+    justify-content: space-around;
+}
+.inputEmail,
+.selectCity,
+.inputDiscount{
+    width: 60%;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--border-radius-gray);
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+.inputPhoneNumber,
+.selectDistrict{
+    width: 38%;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--border-radius-gray);
+    padding-left: 10px;
+    margin-bottom: 15px; 
+}
+.payment-product{
+    width: 45%;
+}
+.payment-product-infor{
+    display: flex;
+    gap:50px;
+    align-items: center;
+}
+.payment-img{
+    width: 180px;
+    height: 150px;
+}
+.payment-img img{
+    width: 100%;
+    height: 100%;
+}
+.payment-product-text p{
+    margin: 10px 0;
+}
+.payment-product-text p:first-child{
+    color: var(--pink);
+    font-weight: bold;
+    font-size: 17px;
+}
+.payment-product-text p:nth-child(2),
+.payment-product-text p:nth-child(3){
+    color: var(--gray);
+}
+.payment-discount{
+    display: flex;
+    justify-content: space-between;
+}
+.btnDiscount{
+    width: 36%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background: var(--gray);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.btnDiscount:hover{
+    background: var(--pink);
+}
+.money{
+    width: 90%;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.productMoney,
+.delivery{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    color: var(--gray);
+}
+.total{
+    color: var(--gray);
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}

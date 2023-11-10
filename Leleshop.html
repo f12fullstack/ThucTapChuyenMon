@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lele Shop</title>
     <link rel="shortcut icon" href="./Pictures/Lele.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./Leleshop.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="header">
         <div class="container">
@@ -33,33 +40,19 @@
         </div>
         <div class="header-main-input">
             <div>
-                <input type="text" placeholder="Enter your product name...">
+                <input id="input_search" type="text" placeholder="Enter your product name...">
             </div>
-            <div class="search-product">
-                <div class="search-product-img">
-                    <img src="https://leleshop.vercel.app/assets/images/products/jacket-3.jpg" alt="">
-                </div>
-                <div class="search-product-text">
-                    <p>JACKET</p>
-                    <p>Mens Winter Leathers Jackets</p> 
-                    <p>350000</p>
-                </div>
-            </div>
-            <div class="search-product">
-                <div class="search-product-img">
-                    <img src="https://leleshop.vercel.app/assets/images/products/jacket-3.jpg" alt="">
-                </div>
-                <div class="search-product-text">
-                    <p>JACKET</p>
-                    <p>Mens Winter Leathers Jackets</p> 
-                    <p>350000</p>
-                </div>
-            </div>
+        </div>
+        <div class="search-product" id="box_search">
+            
         </div>
         <div class="header-main-icon">
             <i class="fa-solid fa-user"></i>
             <i class="fa-solid fa-heart"></i>
-            <i class="fa-solid fa-cart-shopping"></i>
+            <span>
+                <i class="fa-solid fa-cart-shopping addToCart"></i>
+                <span id="cartNumber">0</span>
+            </span>
         </div>
     </div>
     <div class="navigation">
@@ -118,46 +111,51 @@
     </div>
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active advertisement" data-bs-interval="10000">
-            <img src="https://leleshop.vercel.app/assets/images/banner-2.jpg" class="d-block w-100 advertisement-img" alt="...">
-            <div class="d-noned-md-block advertisement-banner">
-                <p class="advertisement-banner-title">Trending Item</p>
-                <h2>WOMEN'S LATEST FASHION SALE</h2>
-                <p class="advertisement-banner-text">starting at $ 20</span>.00</p>
-                <button>SHOP NOW</button>
+            <div class="carousel-item active advertisement" data-bs-interval="10000">
+                <img src="https://leleshop.vercel.app/assets/images/banner-2.jpg"
+                    class="d-block w-100 advertisement-img" alt="...">
+                <div class="d-noned-md-block advertisement-banner">
+                    <p class="advertisement-banner-title">Trending Item</p>
+                    <h2>WOMEN'S LATEST FASHION SALE</h2>
+                    <p class="advertisement-banner-text">starting at $ 20</span>.00</p>
+                    <button>SHOP NOW</button>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item advertisement" data-bs-interval="2000">
-            <img src="./Pictures/banner-1.jpg" class="d-block w-100 advertisement-img" alt="...">
-            <div class="d-md-block advertisement-banner">
-                <p class="advertisement-banner-title">Sale Offer</p>
-                <h2>NEW FASHION SUMMER SALE</h2>
-                <p class="advertisement-banner-text">starting at $ 29</span>.99</p>
-                <button>SHOP NOW</button>
+            <div class="carousel-item advertisement" data-bs-interval="2000">
+                <img src="./Pictures/banner-1.jpg" class="d-block w-100 advertisement-img" alt="...">
+                <div class="d-md-block advertisement-banner">
+                    <p class="advertisement-banner-title">Sale Offer</p>
+                    <h2>NEW FASHION SUMMER SALE</h2>
+                    <p class="advertisement-banner-text">starting at $ 29</span>.99</p>
+                    <button>SHOP NOW</button>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item advertisement">
-            <img src="https://leleshop.vercel.app/assets/images/banner-3.jpg" class="d-block w-100 advertisement-img" alt="...">
-            <div class="d-md-block advertisement-banner">
-                <p class="advertisement-banner-title">Trending Accessories</p>
-                <h2>MODERN SUNGLASSES</h2>
-                <p class="advertisement-banner-text">starting at $ 15</span>.99</p>
-                <button>SHOP NOW</button>
+            <div class="carousel-item advertisement">
+                <img src="https://leleshop.vercel.app/assets/images/banner-3.jpg"
+                    class="d-block w-100 advertisement-img" alt="...">
+                <div class="d-md-block advertisement-banner">
+                    <p class="advertisement-banner-title">Trending Accessories</p>
+                    <h2>MODERN SUNGLASSES</h2>
+                    <p class="advertisement-banner-text">starting at $ 15</span>.99</p>
+                    <button>SHOP NOW</button>
+                </div>
             </div>
-          </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
         </button>
     </div>
     <div class="category">
@@ -306,7 +304,8 @@
                 </div>
                 <div class="detail-main-product">
                     <p>SHAMPOO, CONDITIONER & FACEWASH PACKS</p>
-                    <p class="redd">Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor dolor sit amet consectetur Lorem ipsum dolor</p>
+                    <p class="redd">Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor dolor sit amet consectetur
+                        Lorem ipsum dolor</p>
                     <span class="price-later">$150.000 </span> <span class="previous-price">$200.000</span>
                 </div>
                 <button>ADD TO CART</button>
@@ -334,7 +333,8 @@
         <div class="testimonial-founder">
             <p class="testimonial-founder-title">Testimonial</p>
             <div class="testimonial-founder-main">
-                <img src="https://leleshop.vercel.app/assets/images/testimonial-1.jpg" alt="Founder" class="founder-img">
+                <img src="https://leleshop.vercel.app/assets/images/testimonial-1.jpg" alt="Founder"
+                    class="founder-img">
                 <div class="founder-infor">
                     <p>ALAN DOE</p>
                     <p>CEO & Founder Invision</p>
@@ -493,13 +493,19 @@
         <p>Copyright © Anon All Rights Reserved.</p>
     </div>
     <script>
+        const input_search = document.getElementById("input_search");
+        const box_search = document.getElementById("box_search");
+        // Số lượng trong giỏ hàng
+        let cartCount = 0;
+        let products;
         fetch('http://localhost:8000/api/product/getAll').then(response => response.json())
-        .then(data => { // data la du lieu response tra ve
-            const list = document.getElementById("list") 
-            console.log(data);
-            data.allProduct.forEach((item, index) => { // duyet qua tung phan tu cua mang
-                const listItem = document.createElement("div")
-                listItem.innerHTML = `
+            .then(data => { // data la du lieu response tra ve
+                const list = document.getElementById("list")
+                // console.log(data);
+                products = data.allProduct;
+                products.forEach((item, index) => { // duyet qua tung phan tu cua mang
+                    const listItem = document.createElement("div")
+                    listItem.innerHTML = `
                 <div class="product-box">
                     <div class="box-img">
                         <div class="product-box-img">
@@ -522,20 +528,66 @@
                         <div><i class="fa-regular fa-heart"></i></div>
                         <div><i class="fa-regular fa-eye"></i></div>
                         <div><i class="fa-solid fa-rotate-right"></i></div>
-                        <div><i class="fa-solid fa-cart-shopping"></i></div>
+                        <div 
+                        onclick="addToCart()"
+                        >
+                        <i class="fa-solid fa-cart-shopping"></i></div>
                     </div>
                 </div>
                           
                 `
-                list.appendChild(listItem) // moi 1 lan lap "list" se nhan 1 children la "listItem" 
-            }) 
-            console.log(data);
-        })
-        .catch(err => {
-            console.log(err);
-        })
-        // var searchProduct = document.querySelector(".search-product")
-        // var 
+                    list.appendChild(listItem) // moi 1 lan lap "list" se nhan 1 children la "listItem" 
+                })
+                console.log(data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+       
+
+        input_search.addEventListener('input', function () {
+
+            // Lấy giá trị từ trường input
+            const searchTerm = input_search.value.toLowerCase();
+            // Xóa danh sách kết quả trước đó
+            box_search.innerHTML = '';
+            // Lọc và hiển thị kết quả phù hợp
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
+            filteredProducts.forEach(product => {
+                const listItem = document.createElement("div")
+                listItem.classList.add('resultItem');
+                listItem.innerHTML = `
+                    <div class="search-product-img">
+                        <img src=${product.image[0]} alt="">
+                    </div>
+                    <div class="search-product-text">
+                        <p>${product.category}</p>
+                        <p>${product.name}</p>
+                        <p>${product.price}</p>
+                    </div>
+                `
+                product.name;
+                box_search.appendChild(listItem);
+            });
+
+            // Hiển thị danh sách kết quả
+            box_search.style.display = 'block';
+            // Ẩn danh sách kết quả khi click ra ngoài ô tìm kiếm
+            document.addEventListener('click', function (event) {
+                if (!input_search.contains(event.target) && !box_search.contains(event.target)) {
+                    box_search.style.display = 'none';
+                }
+            });
+
+        });
+
+        // Hàm thêm sản phẩm vào giỏ hàng
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cartNumber').innerText = cartCount;
+            alert('Đã thêm thành công vào giỏ hàng')
+        }
     </script>
 </body>
+
 </html>
