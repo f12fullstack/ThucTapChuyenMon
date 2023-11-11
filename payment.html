@@ -33,13 +33,23 @@
                 </div>
                 <input type="text" name="" id="" placeholder="Địa chỉ" class="inputAddress">
                 <div>
-                    <select name="" id="" class="selectCity">
+                    <select name="" id="city" class="selectCity">
                         <option value="">Chọn tỉnh thành</option>
-                        <option value="">Hà Nội</option>
+                        <!-- <option value="">Hà Nội</option> -->
                     </select>
-                    <select name="" id="" class="selectDistrict">
+                    <select name="" id="district" class="selectDistrict">
                         <option value="">Chọn Quận / Huyện</option>
-                        <option value="">Quận Hoàng Mai</option>
+                        <!-- <option value="">Quận Hoàng Mai</option>
+                        <option value="">Quận Hai Bà Trưng</option>
+                        <option value="">Quận Hoàn Kiếm</option>
+                        <option value="">Quận Ba Đình</option>
+                        <option value="">Quận Hà Đông</option>
+                        <option value="">Quận Thanh Xuân</option>
+                        <option value="">Quận Long Biên</option>
+                        <option value="">Quận Cầu Giấy</option>
+                        <option value="">Quận Tây Hồ</option>
+                        <option value="">Quận Nam Từ Liêm</option>
+                        <option value="">Quận Bắc Từ Liêm</option> -->
                     </select>
                 </div>
             </div>
@@ -75,12 +85,56 @@
             </div>
         </div>
     </div>
+    <div class="footer">
+        <div class="policy">
+            <a href="https://help.shopee.vn/portal/article/77244">
+                <p>CHÍNH SÁCH BẢO MẬT</p>
+            </a>
+            <a href="https://help.shopee.vn/portal/article/77245">
+                <p>QUY CHẾ HOẠT ĐỘNG</p>
+            </a>
+            <a href="https://help.shopee.vn/portal/article/77250">
+                <p>CHÍNH SÁCH VẬN CHUYỂN</p>
+            </a>
+            <a href="https://help.shopee.vn/portal/article/77251">
+                <p>CHÍNH SÁCH TRẢ HÀNG VÀ HOÀN TIỀN</p>
+            </a>
+        </div>
+        <div class="addressCompany">
+            <p>Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành phố Hà Nội, Việt Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@leleshop.vn</p>
+            <p>Chịu Trách Nhiệm Quản Lý Nội Dung: Lele - Điện thoại liên hệ: 024 7308 (ext 4678)</p>
+            <p>Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch & Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015</p>
+        </div>
+    </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script>
-    fetch("https://provinces.open-api.vn/api/?depth=2")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  });
+    var citis = document.getElementById("city");
+    var districts = document.getElementById("district");
+    var Parameter = {
+        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json", 
+        method: "GET", 
+        responseType: "application/json", 
+    };
+    var promise = axios(Parameter);
+    promise.then(function (result) {
+        renderCity(result.data);
+    });
+
+    function renderCity(data) {
+        for (const x of data) {
+        citis.options[citis.options.length] = new Option(x.Name, x.Id);
+        }
+        citis.onchange = function () {
+        district.length = 1;
+        if(this.value != ""){
+            const result = data.filter(n => n.Id === this.value);
+
+            for (const k of result[0].Districts) {
+                district.options[district.options.length] = new Option(k.Name, k.Id);
+            }
+        }
+        }
+    }
 </script>
 </html>
