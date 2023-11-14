@@ -152,6 +152,9 @@
     justify-content: space-between;
     font-size: 15px;
 }
+.footer{
+    margin-top: 50px;
+}
 .policy a{
     color: var(--gray);
     cursor: pointer;
@@ -165,4 +168,51 @@
 }
 .addressCompany p{
     margin: 8px 0;
+}
+@media (max-width: 1024px){
+    .policy{
+        width: 90%;
+    }
+    .addressCompany{
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px){
+    .payment-menu{
+        flex-direction: column;
+    }
+    .selectCity{
+        width: 52%;
+    }
+    .selectDistrict{
+        width: 46%;
+    }
+    .policy{
+        flex-direction: column;
+    }
+    .policy a{
+        margin: 10px 0;
+    }
+    .addressCompany{
+        width: 90%;
+        text-align: left;
+        font-size: 15px;
+        margin: 20px auto;
+    }
+    .payment-img{
+        width: 160px;
+        height: 130px;
+    }
+    .payment-product-infor{
+        gap: 20px
+    }
+}
+@media (max-width: 600px){
+    .payment-img{
+        width: 130px;
+        height: 100px;
+    }
+    .footer{
+        margin-top: 10px;
+    }
 }
