@@ -91,12 +91,12 @@
     align-items: center;
 }
 .payment-img{
-    width: 180px;
+    width: 150px;
     height: 150px;
 }
 .payment-img img{
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 95%;
 }
 .payment-product-text p{
     margin: 10px 0;

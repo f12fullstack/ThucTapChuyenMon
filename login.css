@@ -1,0 +1,125 @@
+:root{
+    --gray: gray;
+    --light-gray:rgb(243, 236, 236);
+    --pink: rgb(250, 171, 184);
+    --border-radius-gray: rgb(216, 214, 214);
+    --star: rgb(255, 157, 0);
+    --light-black:rgb(31, 30, 30);
+}
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+.first-header{
+    display: flex;
+    align-items: center;
+}
+.header-img img{
+    height: 20px;
+    width: 20px;
+}
+.header-login{
+    margin-left: 20px;
+}
+.header-help a{
+    margin-left: 100px;
+    color: var(--pink);
+    cursor: pointer;
+    text-decoration: none;
+}
+.box{
+    height: 500px;
+    background-color: var(--pink);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.logo-box{
+    text-align: center;
+}
+.logo-box img{
+    height: 200px;
+    width: 200px;
+}
+.cart{
+    font-size: 200px;
+    color: white;
+}
+.box-img img{
+    height: 40px;
+    width: 40px;
+}
+.login-box{
+    height: 420px;
+    width: 380px;
+    border: 1px solid var(--light-gray);
+    background-color: white;
+    border-radius: 5px;
+}
+.login-box-text1{
+    margin: 20px 20px 0;
+}
+.login-box-input div{
+    margin: 20px;
+}
+.input-username,
+.input-email,
+.input-password{
+    height: 40px;
+    width: 100%;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+}
+.btn-login{
+    margin: 0 20px 20px;
+}
+.btn-login button{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--light-gray);
+    background-color: var(--pink);
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.btn-login button:hover{
+    background-color: rgb(250, 128, 149);
+}
+.login-box-text2 {
+    margin: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.login-box-text2 div{
+    color: dodgerblue;
+    cursor: pointer;
+}
+.login-box-text3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-box-text3 div{
+    color: var(--gray);
+}
+.login-box-text3 a{
+    color: var(--pink);
+    margin-left: 3px;
+    width: 100px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    text-decoration: none;
+}

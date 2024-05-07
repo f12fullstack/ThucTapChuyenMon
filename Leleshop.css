@@ -181,16 +181,20 @@
 .advertisement-img{
     text-align: center;
 }
-.advertisement-img img{
+.advertisement-img{
     width: 400px;
-    height: 400px;
+    height: 500px;
     border-radius: 15px;
     object-fit: cover;
 }
 .advertisement-banner{
     position: absolute;
     top: 90px;
-    left: 150px
+    left: 150px;
+    border-radius: 10px;
+    width: 350px;
+    height: 290px;
+    padding-top: 20px;
 }
 .advertisement-banner-title{
     color: var(--pink);
@@ -198,7 +202,7 @@
     font-weight: bold;
 }
 .advertisement-banner h2{
-    font-size: 45px;
+    font-size: 35px;
     width: 350px;
     font-weight: bold;
     margin: 10px 0 20px;
@@ -346,8 +350,9 @@
 }
 .product-box-title p:nth-child(2){
     color: var(--gray);
-    width: 70%;
+    width: 100%;
     margin: 5% 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 .product-box-title i{
     color: var(--star);

@@ -21,5 +21,5 @@ app.get('/', (req, res)=> {
     res.send("Api is running...")
 })
 app.listen(port, function(){
-    console.log("sever đang chạy trên port"+port);
+    console.log("sever đang chạy trên port" + port);
 })
