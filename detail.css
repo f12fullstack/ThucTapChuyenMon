@@ -1,0 +1,159 @@
+:root{
+    --gray: gray;
+    --light-gray:rgb(243, 236, 236);
+    --pink: rgb(250, 171, 184);
+    --border-radius-gray: rgb(216, 214, 214);
+    --star: rgb(255, 157, 0);
+    --light-black:rgb(31, 30, 30);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.logo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--pink);
+    height: 100px;
+}
+.logo img{
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+.header-main-input {
+    width: 50%;
+    margin-left: 100px;
+}
+.header-main-input input{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.container1-img-main img{
+    width: 500px;
+    height: 420px;
+}
+.container1-img-child img{
+    width: 150px;
+    height: 120px;
+}
+.container2-text-main p:first-child{
+    color: var(--gray);
+    font-size: 25px;
+}
+.container2-price{
+    display: flex;
+}
+.container2-price i{
+    color: var(--star);
+}
+.container2-price span:last-child{
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 30px;
+}
+.policy,
+.delivery,
+.color,
+.size,
+.quantity,
+.buy,
+.chooseQuantity{
+    display: flex;
+    align-items: center;
+}
+.policy{
+    margin: 10px 0;
+}
+.policy-return{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 100px;
+}
+.policy-return i{
+    font-size: 35px;
+    color: rgb(243, 72, 72);
+    margin-right: 20px;
+}
+.delivery{
+    margin-bottom: 10px;
+}
+.freeDelivery{
+    margin-left: 155px;
+}
+.freeDelivery img{
+    width: 50px;
+    height: 50px;
+    margin-right: 7px;
+}
+.chooseColor{
+    margin-left: 180px;
+}
+.chooseColor button,
+.chooseSize button{
+    border: 1px solid var(--gray);
+    padding: 5px;
+    background-color: white;
+    transition: 0.5s ease;
+}
+.color-btn{
+    width: 35px;
+    height: 30px;
+}
+.chooseColor button:last-child,
+.chooseSize button{
+    margin-left: 10px;
+    border-radius: 4px;
+}
+.chooseColor button:hover,
+.chooseSize button:hover{
+    background-color: var(--light-gray);
+    border: none;
+}
+.size{
+    margin: 10px 0;
+}
+.chooseSize{
+    margin-left: 150px;
+}
+.chooseQuantity{
+    margin-left: 171px;
+}
+.chooseQuantity div:first-child,
+.chooseQuantity div:last-child{
+    border: 1px solid var(--gray);
+    padding: 5px 15px;
+    cursor: pointer;
+}
+.chooseQuantity div:nth-child(2){
+    border: 1px solid var(--gray);
+    padding: 5px 25px;
+    cursor: pointer
+}
+.buy{
+    margin-top: 20px;
+}
+.buy button{
+    border: 1px var(--gray);
+    background-color: var(--pink);
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 100px;
+    color: white;
+    transition: all 0.5s ease;
+}
+.buy button:hover{
+    background-color: rgb(250, 128, 149);
+}

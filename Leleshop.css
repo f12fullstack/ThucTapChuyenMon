@@ -396,6 +396,9 @@
     justify-content: center;
     align-items: center;
 }
+.product-icon a{
+    text-decoration: none;
+}
 .product-box:hover .product-icon{
     right: 10px;
     opacity: 1;
