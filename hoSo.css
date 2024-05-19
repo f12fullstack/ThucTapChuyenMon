@@ -1,0 +1,210 @@
+:root{
+    --gray: gray;
+    --light-gray:rgb(243, 236, 236);
+    --pink: rgb(250, 171, 184);
+    --border-radius-gray: rgb(216, 214, 214);
+    --star: rgb(255, 157, 0);
+    --light-black:rgb(31, 30, 30);
+    --blue: rgb(47,101,186);
+    --red: rgb(250, 128, 149);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.logo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--pink);
+    height: 100px;
+}
+.logo img{
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+.header-main-input {
+    width: 50%;
+    margin-left: 100px;
+}
+.header-main-input input{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+}
+.item{
+    width: 100%;
+    padding: 20px;
+    background-color: var(--light-gray);
+    display: flex;
+}
+.item-left{
+    width: 15%;
+}
+.item-left-user,
+.item-left-account,
+.item-left-purchaseOrder{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.item-left-user i{
+    color: var(--gray);
+    font-size: 25px;
+}
+.item-left-account i{
+    color: var(--blue);
+    font-size: 25px;
+}
+.item-left-purchaseOrder i{
+    color: var(--blue);
+    font-size: 25px;
+}
+.item-left-text{
+    margin-left: 10px;
+    transition: 0.5s ease;
+}
+.item-left-text:hover{
+    color: var(--pink);
+}
+.item-right{
+    background-color: white;
+    width: 75%;
+    padding: 20px;
+}
+.myProfile{
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--light-gray);
+}
+.myProfile div:first-child{
+    color: var(--gray);
+    font-size: 18px;
+}
+.loginName,
+.userName,
+.email,
+.phoneNumber,
+.gender{
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.loginName div:first-child,
+.userName div:first-child,
+.email div:first-child,
+.phoneNumber div:first-child,
+.birthday div:first-child{
+    color: var(--gray);
+}
+.genderText{
+    color: var(--gray);
+}
+.loginNameBtn{
+    margin-left: 30px;
+}
+.loginNameBtn input,
+.userNameBtn input{
+    outline: none;
+    border-radius: 5px;
+    width: 350px;
+    padding: 3px;
+    border: 1px solid var(--gray);
+}
+.userNameBtn{
+    margin-left: 110px;
+}
+.emailInfor{
+    margin-left: 95px;
+    outline: none;
+    border-radius: 5px;
+    width: 250px;
+    padding: 3px;
+    border: 1px solid var(--gray);
+}
+.phoneNumberInfor{
+    margin-left:42px;
+    outline: none;
+    border-radius: 5px;
+    width: 250px;
+    padding: 3px;
+    border: 1px solid var(--gray);
+}
+.changeEmail,
+.changePhoneNumber{
+    background-color: white;
+    color: var(--pink);
+    border: none;
+    margin-left: 40px;
+} 
+.genderBtn{
+    display: flex;
+    margin-left: 60px;
+}
+.genderBtn input{
+    margin: 0 10px;
+}
+.birthday{
+    display: flex;
+}
+.birthdayBtn{
+    margin-left: 60px;
+}
+.birthdayBtn select{
+    margin-right: 20px;
+    padding: 5px;
+}
+.saveBtn button {
+    border-radius: 4px;
+    padding: 5px 20px;
+    border: 1px solid var(--light-gray);
+    background-color: var(--pink);
+    color: white;
+    cursor: pointer;
+    transition: 0.5s ease;
+    margin: 20px 130px 0px;
+}
+.saveBtn button:hover{
+    background-color: var(--red);
+}
+.item-rightText{
+    display: flex;
+}
+.item-rightAvatar{ 
+    padding: 20px;
+    margin-left: 20px;
+    width: 30%; 
+    border-left: 1px solid var(--light-gray);
+}
+.avatarUser{
+    width: 380px;
+}
+.avatarPhoto{
+    width: 100%;
+    text-align: center;
+}
+.avatarPhoto img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+} 
+.avatarPhoto button{
+    border: 1px solid var(--light-gray);
+    padding: 4px 8px;
+    background-color: var(--pink);
+    border-radius: 4px;
+    color: white;
+    transition: 0.5s ease;
+    margin: 15px;
+}
+.avatarPhoto button:hover{
+    background-color: var(--red);
+}
+
+
